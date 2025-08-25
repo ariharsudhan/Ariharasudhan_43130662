@@ -17,8 +17,7 @@ CREATE TABLE Product (
     pDesc VARCHAR(255),
     cID INT,
     FOREIGN KEY (cID) REFERENCES Category(cID)
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE
+        
 );
 
 -- Step 4: Insert categories
