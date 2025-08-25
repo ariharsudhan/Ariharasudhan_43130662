@@ -1,9 +1,3 @@
-CREATE DATABASE IF NOT EXISTS company;
-USE company;
-
-
-DROP TABLE IF EXISTS workers;
-
 CREATE TABLE workers (
     eno INT PRIMARY KEY,
     ename VARCHAR(50) NOT NULL,
@@ -12,6 +6,7 @@ CREATE TABLE workers (
     salary INT,
     department VARCHAR(50)
 );
+
 
 INSERT INTO workers (eno, ename, eposition, econtact, salary, department) VALUES
 (1, 'Arjun', 'Manager', '9876543210', 120000, 'Admin'),
@@ -25,13 +20,18 @@ INSERT INTO workers (eno, ename, eposition, econtact, salary, department) VALUES
 (9, 'Suresh', 'Accountant', '9876500088', 75000, 'Finance'),
 (10, 'Divya', 'Clerk', '9876500099', 40000, 'Finance');
 
+
 SELECT * FROM workers;
+
 
 DESC workers;
 
+
 SELECT eno AS Employee_ID, ename AS Employee_Name FROM workers;
 
+
 DELETE FROM workers WHERE eno = 10;
+
 
 SELECT * FROM workers;
 
@@ -46,6 +46,29 @@ CREATE OR REPLACE VIEW admin_workers AS
 SELECT ename, salary
 FROM workers
 WHERE department = 'Admin';
+
+SELECT * FROM admin_workers;
+
+-- Drop views if needed
+DROP VIEW IF EXISTS less_than_1L;
+DROP VIEW IF EXISTS admin_workers;
+
+-- LIKE operator examples
+
+SELECT * FROM workers
+WHERE ename LIKE 'A%';
+
+SELECT * FROM workers
+WHERE ename LIKE '%a';
+
+SELECT * FROM workers
+WHERE ename LIKE '%vi%';
+
+SELECT * FROM workers
+WHERE eposition LIKE 'Dev%';
+
+SELECT * FROM workers
+WHERE department LIKE '_____';   
 
 SELECT * FROM admin_workers;
 
