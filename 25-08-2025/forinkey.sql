@@ -14,21 +14,21 @@ CREATE TABLE Product (
     pDesc VARCHAR(255),
     cID INT,
     FOREIGN KEY (cID) REFERENCES Category(cID)
-        ON DELETE CASCADE    -- ODC: delete category → delete products
-        ON UPDATE CASCADE    -- OUC: update category id → update products
+        ON DELETE CASCADE   
+        ON UPDATE CASCADE    
 );
 
--- Step 4: Insert categories
+
 INSERT INTO Category VALUES (1, 'Electronics', 'Devices and gadgets');
 INSERT INTO Category VALUES (2, 'Clothing', 'Wearables and fashion');
 
--- Step 5: Insert products linked to categories
+
 INSERT INTO Product VALUES (101, 'Smartphone', 'Android phone', 1);
 INSERT INTO Product VALUES (102, 'Laptop', 'High performance laptop', 1);
 INSERT INTO Product VALUES (201, 'T-Shirt', 'Cotton T-Shirt', 2);
 INSERT INTO Product VALUES (202, 'Jeans', 'Denim jeans', 2);
 
--- Step 6: Show initial data
+
 SELECT 'Initial Category Table' AS info;
 SELECT * FROM Category;
 SELECT 'Initial Product Table' AS info;
