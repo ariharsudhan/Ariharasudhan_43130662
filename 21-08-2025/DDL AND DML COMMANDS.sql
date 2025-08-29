@@ -1,12 +1,13 @@
 show databases;
-use michael;
+create database aariya;
+use aariya;
 create table ECE (
 sid int,
 sname varchar(30),
 smarks int,
 slocation varchar(30)
 );
-show tables from michael;
+show tables from aariya;
 desc ECE;
 select * from ECE;
 alter table ECE;
